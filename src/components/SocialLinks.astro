@@ -1,5 +1,9 @@
+---
+const {hide} = Astro.props;
+---
+
 <div class="social-links">
-  <a href="https://bsky.djpiplup.dev" target="_blank">
+  <a href="https://bsky.djpiplup.dev" target="_blank"  class={hide ? 'hide-content' : ''}>
     <span class="sr-only">Visit DJPiplup on Bluesky</span>
     <svg viewBox="0 0 24 24" viewBox="0 0 16 16" aria-hidden="true" width="32" height="32"
       ><path
@@ -8,7 +12,7 @@
       ></path></svg
     >
   </a>
-  <a href="https://github.com/dj-piplup" target="_blank">
+  <a href="https://github.com/dj-piplup" target="_blank"  class={hide ? 'hide-content' : ''}>
     <span class="sr-only">Visit DJPiplup on GitHub</span>
     <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32"
       ><path
@@ -32,4 +36,7 @@
 	.social-links a:hover {
 		color: rgb(var(--gray-dark));
 	}
+  .hide-content {
+    color: transparent !important;
+  }
 </style>

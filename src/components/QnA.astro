@@ -1,0 +1,46 @@
+---
+const { question } = Astro.props;
+---
+
+<article>
+  <p class="big">
+    Q:&nbsp;&nbsp;{question}
+  </p>
+  <section>
+    <p class="big">A:</p>
+    <div><slot /></div>
+  </section>
+</article>
+<style>
+  article {
+    width: 100%;
+  }
+  h2 {
+    width: 100%;
+    text-align: center;
+  }
+  p {
+    margin-bottom: 0.5em;
+    margin-top: 0;
+  }
+  section {
+    display: grid;
+    grid-template-columns: min-content auto;
+    background-color: rgba(255, 255, 255, 0.067);
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    padding-inline: 2ch;
+    margin-bottom: 1rem;
+    width: 100%;
+    > * {
+      margin: 0;
+      padding-top: 0.25rem;
+      vertical-align: top;
+      &.big {
+        padding-top: 0;
+        padding-inline-end: 1ch;
+        width: min-content;
+      }
+    }
+  }
+</style>

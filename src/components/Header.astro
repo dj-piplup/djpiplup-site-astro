@@ -2,24 +2,30 @@
 import { SITE_TITLE, HIDE_LOGO } from "../consts";
 import HeaderLink from "./HeaderLink.astro";
 import SocialLinks from "./SocialLinks.astro";
+
+const { hideLogo, hideLinks } = Astro.props;
 ---
 
 <header>
   <nav>
-    <h2><a href="/" class={HIDE_LOGO ? 'hide-logo' : ''} inert={HIDE_LOGO || null}>{SITE_TITLE}</a></h2>
+    <h2><a href="/" class={hideLogo ? 'hide-content' : ''} inert={hideLogo || null}>{SITE_TITLE}</a></h2>
     <div class="internal-links">
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/projects">Projects</HeaderLink>
       <HeaderLink href="/figures">Figures</HeaderLink>
     </div>
-    <SocialLinks/>
+    <SocialLinks hide/>
   </nav>
 </header>
 <style>
   header {
     margin: 0;
     padding: 0 1em;
-    box-shadow: 0 2px 8px #0002
+    box-shadow: 0 2px 8px #0002;
+		width: 100%;
+		box-sizing: border-box;
+		position: sticky;
+		top: 0;
   }
   h2 {
     margin: 0;
@@ -31,8 +37,8 @@ import SocialLinks from "./SocialLinks.astro";
     text-decoration: none;
   }
 
-	h2 > a.hide-logo {
-		color: transparent;
+	.hide-content {
+		color: transparent !important;
 	}
 
   nav {

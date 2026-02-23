@@ -1,49 +1,114 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import QnA from "../components/QnA.astro";
+import SocialLinks from "../components/SocialLinks.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      h1 {
+        font-size: 3rem;
+      }
+      .intro-blurb {
+        font-size: 1.35rem;
+        text-align: center;
+      }
+			ul {
+				margin: 0;
+				padding-block: 0.5rem;
+			}
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>DJPiplup</h1>
+    	<Header hideLogo hideLinks />
+      <p class="intro-blurb">
+        Welcome! I'm a programmer (primarily web dev) and enjoyer of many things
+        in the video game/anime sphere. I don't really post or publish much, but
+        I occasionally have some projects I'll host here.
+      </p>
+      <SocialLinks />
+      <h2>"F"AQ</h2>
+      <QnA question="Do I know you from [some other platform]?">
+        Maybe, probably, but possibly not. I've had DJPiplup solely for a long
+        time, but it originally came from accounts that my brother and I shared.
+        If you knew 'DJPiplup' before like, 2012, there's a good chance it was
+        him and not me. Otherwise: hello again :)
+      </QnA>
+      <QnA question="Fan of things video game/anime? Like what?">
+        There is a lot of stuff that I'm at least aware of and enjoy
+        tangentially, but the list of things I've actually watched/played and
+        liked and can think of off the top of my head includes (but is not
+        limited to):
+        <ul>
+          <li>FFXIV</li>
+          <li>Persona 3-5</li>
+          <li>Xenoblade Chronicles series</li>
+          <li>Fire Emblem series</li>
+          <li>Honkai: Star Rail</li>
+          <li>Zenless Zone Zero</li>
+          <li>Atelier (Ryza only so far)</li><li>Project Diva Mega Mix</li>
+          <li>Holocure</li>
+          <li>Fighting Games (amateur):</li>
+          <ul>
+            <li>Idol Showdown</li>
+            <li>Blazblue</li>
+            <li>Under Night</li>
+            <li>Guilty Gear</li>
+            <li>a little bit of others</li>
+          </ul>
+          <li>Dungeon Meshi (anime)</li>
+          <li>Bocchi: The Rock</li>
+          <li>Frieren</li>
+        </ul>
+      </QnA>
+      <QnA question="Are you open to chat?">
+        Sure, I'd love a friendly chat about mutual interests! Just don't
+        advertise in DMs and we're good.<br />
+        Quick note: please try to bring up said interests right away, I get a little
+        iffy on whether a simple 'Hi how are you' and the like is a real person and
+        may not respond
+      </QnA>
+      <QnA question="FFXIV??? Who, where, what">
+        I'm Dagr Jotunskati on Jenova (Aether). Feel free to go look at my house
+        at Jenova Empyrium Ward 17 Plot 11
+      </QnA>
+      <QnA question="Holocure and Idol showdown? Do you like Hololive?">
+        Kinda, yeah. I don't sit down and watch things much, but I do enjoy the
+        Hololive content I come across. If I had to pick a few: Fauna, Mumei,
+        Raora, Nerissa.
+        <br /><br />
+        Separate from hololive, I also watch and enjoy <a
+          href="https://www.youtube.com/@niminightmare">Nimi Nightmare</a
+        >, she's fun
+      </QnA>
+      <QnA question="You do web dev? Which frameworks/tools?">
+        I'll pick up whatever, but I've gotten into:
+        <ul>
+          <li>Vue</li>
+					<li>Svelte</li>
+					<li>Solid</li>
+					<li>Vanilla</li>
+					<li>Lit</li>
+					<li>Stencil</li>
+					<li>Astro</li>
+        </ul>
+        using
+        <ul>
+          <li>Typescript</li>
+					<li>Vite</li>
+					<li>Firebase</li>
+					<li>Cloudflare Workers</li>
+        </ul>
+        This site was made with Astro so I can look into how to use it
+    </main>
+    <Footer />
+  </body>
 </html>
