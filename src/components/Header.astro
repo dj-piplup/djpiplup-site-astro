@@ -14,7 +14,7 @@ const { hideLogo, hideLinks } = Astro.props;
       <HeaderLink href="/projects">Projects</HeaderLink>
       <HeaderLink href="/figures">Figures</HeaderLink>
     </div>
-    <SocialLinks hide/>
+    <SocialLinks hide={hideLinks}/>
   </nav>
 </header>
 <style>
@@ -22,7 +22,7 @@ const { hideLogo, hideLinks } = Astro.props;
     margin: 0;
     padding: 0 1em;
     box-shadow: 0 2px 8px #0002;
-		width: 100%;
+		width: 100vw;
 		box-sizing: border-box;
 		position: sticky;
 		top: 0;

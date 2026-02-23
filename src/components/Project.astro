@@ -1,0 +1,36 @@
+---
+import IconLink from "./IconLink.astro";
+
+const { title, download, website, github } = Astro.props;
+---
+
+<article>
+  <h3>{title}</h3>
+  <p><slot /></p>
+  <hr />
+  <section class="project-links">
+    {website ? <IconLink href={website} icon="website" /> : null}
+    {github ? <IconLink href={github} icon="github" /> : null}
+    {download ? <IconLink href={download} icon="download" /> : null}
+  </section>
+</article>
+<style>
+  article {
+    background-color: rgba(255, 255, 255, 0.267);
+    backdrop-filter: blur(2px);
+    padding: 1rem 1.5rem 0.5rem;
+    border-radius: 0.25rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    font-size: 1.05rem;
+  }
+  .project-links {
+    margin-block: 0.75rem 0.25rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+</style>
