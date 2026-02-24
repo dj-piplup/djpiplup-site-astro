@@ -1,14 +1,14 @@
 ---
-import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import Gallery from '../components/Gallery.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'figures'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, figureImage, boxImages } = Astro.props;
 ---
 
 <html lang="en">
@@ -20,14 +20,12 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				max-width: 100%;
 				margin: 0;
 			}
-			.hero-image {
-				width: 100%;
+			article {
+				display: grid;
+				grid-template-columns: 600px auto;
 			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
+			.image {
+				width: 100%;
 			}
 			.prose {
 				width: 720px;
@@ -52,6 +50,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.last-updated-on {
 				font-style: italic;
 			}
+			@media screen and (max-width: 800px) {
+				article {
+					grid-template-columns: 300px auto;
+				}
+			}
 		</style>
 	</head>
 
@@ -59,22 +62,13 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<Header />
 		<main>
 			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+				<div class="image">
+					<Gallery imgSrcs={[figureImage, boxImages].flat()}/>
 				</div>
 				<div class="prose">
 					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
 						<h1>{title}</h1>
+						<p>Added on <FormattedDate date={pubDate}/></p>
 						<hr />
 					</div>
 					<slot />
