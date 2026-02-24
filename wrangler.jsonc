@@ -10,7 +10,7 @@
   "routes": [
     {
       "custom_domain": true,
-      "pattern": "next.djpiplup.dev"
+      "pattern": "djpiplup.dev"
     }
   ]
 }
