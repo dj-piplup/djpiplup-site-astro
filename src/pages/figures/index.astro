@@ -48,6 +48,20 @@ const posts = (await getCollection('figures')).sort(
 				margin: 0;
 				margin-inline: var(--text-margin);
 			}
+			h2 {
+				font-size: 2rem;
+				margin-bottom: 0.5rem;
+			}
+			p {
+				width: fit-content;
+				max-width: 1100px;
+				margin-bottom: 1rem;
+			}
+			hr {
+				color: currentColor;
+				width: 100%;
+				margin-block: 1rem 2rem;
+			}
 		</style>
 	</head>
 	<body>
@@ -55,6 +69,8 @@ const posts = (await getCollection('figures')).sort(
 		<main>
 			<h2>My Figures</h2>
 			<p>This is a gallery of the figures I own. Mostly, I wanted a place to put images of the boxes because I would probably hoard them otherwise. At the moment, this is still a work in progress, but the remaining work is mostly data entry</p>
+			<p>I tried to keep the images of the figures relatively to scale with each other, but of course there is still plenty of variation with exactly how far from the camera the figure is</p>
+			<hr />
 			<section>
 					{
 						posts.map((post) => (

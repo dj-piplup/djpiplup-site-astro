@@ -2,7 +2,7 @@
 const { icon, href, screenReader, hide } = Astro.props;
 ---
 
-<a href={icon} target="_blank" class={hide ? "hide-content" : ""}>
+<a href={href} target="_blank" class={hide ? "hide-content" : ""}>
   {
     (screenReader ?? null) && (
       <span class="sr-only">Visit DJPiplup on Bluesky</span>
