@@ -12,8 +12,8 @@ const figures = defineCollection({
 			// Transform string to Date object
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
-			figureImage: image().optional(),
-			boxImages: image().array().optional()
+			figureImage: z.string(),
+			boxImages: z.string().array().optional()
 		}),
 });
 

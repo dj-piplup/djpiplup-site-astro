@@ -1,8 +1,52 @@
 ---
+type Props = {imgSrcs: string[]}
 const { imgSrcs } = Astro.props;
-let idx = 0;
-
 ---
-<section>
-
+<section id="gallery">
+  <img class="selected" src={imgSrcs[0]}/>
+  <div class="image-picker">
+    {
+      imgSrcs.map((src, i) => (
+        <img src={src} class={i === 0 ? "matches-selected" : ''}/>
+      ))
+    }
+  </div>
 </section>
+<script>
+  const mainImage = document.querySelector<HTMLImageElement>('#gallery > .selected')!;
+  const handleImageClick = (e: Event) => {
+    const srcImg = e.target as HTMLImageElement;
+    mainImage.src = srcImg.src;
+    for(const el of document.getElementsByClassName('matches-selected')) {
+      el.classList.remove('matches-selected');
+    }
+    srcImg.classList.add('matches-selected');
+  }
+  document.querySelectorAll<HTMLImageElement>('.image-picker > img').forEach(img => {
+    console.log(img);
+    img.addEventListener('click', handleImageClick);
+  });
+</script>
+<style>
+  img {
+    aspect-ratio: 3:4;
+  }
+  img.selected {
+    width: 100%;
+  }
+  .image-picker {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    border-top: 1px solid currentColor;
+    padding-top: 0.75rem;
+    margin-top: 0.5rem;
+  }
+  .image-picker > img {
+    width: 5rem;
+    cursor: pointer;
+  }
+  img.matches-selected {
+    outline: 2px solid var(--selection-color);
+  }
+</style>

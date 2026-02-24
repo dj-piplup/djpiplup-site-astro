@@ -10,23 +10,29 @@
   font-weight: 400;
   font-size: 17px;
 
+  --base-text-color: rgba(255, 255, 255, 0.87);
+  --link-color: #868cff;
+  --link-hover: #6268da;
+
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background: linear-gradient(#14002a, #102 15%, #040010 75%);
+  color: var(--base-text-color);
+  background: linear-gradient(#1d013b, #102 25%, #040010 75%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --selection-color: #9AF;
 }
 
 a {
   font-weight: 500;
-  color: #868cff;
+  color: var(--link-color);
   text-decoration: inherit;
 }
 a:hover {
-  color: #6268da;
+  color: var(--link-hover);
 }
 
 body {
