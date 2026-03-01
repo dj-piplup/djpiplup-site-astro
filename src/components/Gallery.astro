@@ -23,7 +23,6 @@ const { imgSrcs } = Astro.props;
     srcImg.classList.add('matches-selected');
   }
   document.querySelectorAll<HTMLImageElement>('.image-picker > img').forEach(img => {
-    console.log(img);
     img.addEventListener('click', handleImageClick);
   });
 </script>
@@ -39,8 +38,10 @@ const { imgSrcs } = Astro.props;
     gap: 0.5rem;
     align-items: center;
     border-top: 1px solid currentColor;
-    padding-top: 0.75rem;
-    margin-top: 0.5rem;
+    padding: 0.5rem 0.1rem;
+    margin-top: 0.75rem;
+    overflow-x: auto;
+    height: 
   }
   .image-picker > img {
     width: 5rem;

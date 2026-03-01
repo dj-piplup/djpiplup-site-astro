@@ -11,9 +11,8 @@ boxImages:
     https://s3.djpiplup.dev/figure-boxes/scale-ryza-3-4.webp,
     https://s3.djpiplup.dev/figure-boxes/scale-ryza-3-5.webp,
   ]
-mfcLink: 'https://myfigurecollection.net/item/1799198'
+mfcLink: 'https://myfigurecollection.net/item/1650300'
 series: 'Atelier'
 character: 'Ryza'
-figureLine: 'Scale'
 ---
 I don't get scale figures often, because there aren't usually characters or franchises I care enough about to spend $200+ on a figure. However, I love Ryza and this one was on a discount for more more like $120, so I went ahead and got it. It is still probably the nicest figure I own and one of my favorites

@@ -1,0 +1,105 @@
+---
+import type { JSX } from 'astro/jsx-runtime';
+
+type Props = {
+  data:
+    | Record<string, string>
+    | Record<string, string[]>
+    | Record<string, Record<string, string>>
+    | string[][];
+};
+const { data } = Astro.props;
+const headers = new Set<string>();
+const finishedData: string[][] = [];
+
+function isShape<T extends "string" | "array" | "record">(
+  obj: Props["data"],
+  type: T,
+): obj is T extends "string"
+  ? Record<string, string>
+  : T extends "array"
+    ? Record<string, string[]>
+    : Record<string, Record<string, string>> {
+  if (Array.isArray(obj)) {
+    return false;
+  }
+  const someKey = Object.keys(obj)[0];
+  const someValue = obj[someKey];
+  if (typeof someValue === "string") {
+    return type === "string";
+  }
+  if (Array.isArray(someValue)) {
+    return type === "array";
+  }
+  return typeof someValue === "object" && someValue !== null;
+}
+
+if (Array.isArray(data)) {
+  finishedData.splice(0, 0, ...data);
+} else {
+  const keys = Object.keys(data);
+  if (isShape(data, "string")) {
+    for (const k of keys) {
+      finishedData.push([k, data[k]]);
+    }
+  } else if (isShape(data, "array")) {
+    for (const k of keys) {
+      finishedData.push([k, ...data[k]]);
+    }
+  } else {
+    for (const k of keys) {
+      for (const category of Object.keys(data[k])) {
+        headers.add(category);
+      }
+    }
+    for (const k of keys) {
+      finishedData.push([k, ...Array.from(headers, (h) => data[k][h])]);
+    }
+  }
+}
+---
+<style>
+    .component-table {
+        background-color: #FFF2;
+        margin: 0.5rem;
+        padding: 0;
+        border: none;
+        border-spacing: 0;
+        width: 100%;
+        tbody {
+            margin: 0;
+            padding: 0;
+        }
+        td {
+            padding: 0.5rem 0.75rem;
+            border-inline-start: 1px solid color-mix(in srgb, currentColor 30%, #0004 70%);
+        }
+        td:first-child {
+            border: none;
+        }
+        tr:nth-child(even) {
+            background-color: #FFF2;
+        }
+    }
+</style>
+<table class="component-table">
+  {
+    headers.size === 0 ? null : (
+      <thead>
+        <th />
+        {Array.from(headers, (h) => (
+          <th>{h}</th>
+        ))}
+      </thead>
+    )
+  }
+  {
+    finishedData.map((row) => (
+      <tr>
+        {row.map((d) => (
+          <td>{d.startsWith('https://') ? <a href={d}>{d}</a> : d}</td>
+        ))}
+      </tr>
+    ))
+  }
+</table>

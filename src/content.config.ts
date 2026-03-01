@@ -17,7 +17,7 @@ const figures = defineCollection({
 			mfcLink: z.string(),
 			series: z.string(),
 			character: z.string(),
-			figureLine: z.string()
+			figureLine: z.string().optional()
 		}),
 });
 
