@@ -8,7 +8,7 @@ const { hideLogo, hideLinks } = Astro.props;
 
 <header>
   <nav>
-    <h1 class="header-title"><a href="/" class={hideLogo ? 'hide-content' : ''} inert={hideLogo || null}><img class='header-pfp' src='/favicon.png' alt="DJPiplup's Profile Picture, a painted round yellow bird holding a knife" />&nbsp;{SITE_TITLE}</a></h1>
+    <h1 class="header-title"><a href="/" class={hideLogo ? 'hide-content' : ''} inert={hideLogo || null} title={SITE_TITLE}><img class='header-pfp' src='/favicon.png' alt="DJPiplup's Profile Picture, a painted round yellow bird holding a knife" />&nbsp;<span id="site-title">{SITE_TITLE}</span></a></h1>
     <div class="internal-links">
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/projects">Projects</HeaderLink>
@@ -22,11 +22,13 @@ const { hideLogo, hideLinks } = Astro.props;
     margin: 0;
     padding: 0 1em;
 		width: 100vw;
+    display: flex;
+    justify-content: center;
 		box-sizing: border-box;
   }
   .header-pfp {
     display: inline;
-    height: 1em;
+    height: 1.5em;
     margin: 0;
     padding: 0;
     padding-top: 2px;
@@ -42,7 +44,7 @@ const { hideLogo, hideLinks } = Astro.props;
     text-align: center;
   }
 
-  .social-links {
+  :global(header > nav > .social-links) {
     text-align: end;
   }
 
@@ -58,12 +60,10 @@ const { hideLogo, hideLinks } = Astro.props;
 	}
 
   nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    > div, h1 {
-      width: 33%;
-    }
+    display: grid;
+    grid-template-columns: 120px 1fr 120px;
+    grid-template-rows: 4rem;
+    width: 100%;
   }
   nav a {
     padding: 1em 0.5em;
@@ -75,5 +75,20 @@ const { hideLogo, hideLinks } = Astro.props;
   nav a.active {
     text-decoration: none;
     border-bottom-color: var(--accent);
+  }
+
+  @media screen and (width <= 550px) {
+    nav {
+      grid-template-columns: 1em 1fr 1em;
+    }
+    .header-title {
+      align-self: self-start;
+    }
+    #site-title {
+      display: none !important;
+    }
+    :global(header > nav > .social-links) {
+      display: none !important;
+    }
   }
 </style>
