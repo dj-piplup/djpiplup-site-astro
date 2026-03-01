@@ -15,9 +15,10 @@ const figDate = (p: CollectionEntry<"figures">) => p.data.pubDate.valueOf();
 
 const allPosts = await getCollection("figures");
 const newestBatch = Math.max(...allPosts.map(figDate));
+const isNewestInLastWeek = (newestBatch - (7 * 24 * 60 * 60 * 1000)) < Date.now();
 const posts = allPosts.sort((a, b) => {
   // If one figure is in the newest batch and the other isn't, order by newest first
-  if ((figDate(a) === newestBatch) !== (figDate(b) === newestBatch)) {
+  if (isNewestInLastWeek && (figDate(a) === newestBatch) !== (figDate(b) === newestBatch)) {
     return figDate(b) - figDate(a);
   }
   // If they are both in the newest batch or not, then compare by title
@@ -94,6 +95,7 @@ declare global {
         gap: var(--gallery-gap);
       }
       article a {
+        position: relative;
         display: flex;
         flex-direction: column;
         overflow-x: hidden;
@@ -111,7 +113,7 @@ declare global {
             color: inherit !important;
           }
         }
-        > :not(img) {
+        > :not(img, .new-marker) {
           line-height: 1.35rem;
           margin-inline-start: var(--text-margin);
         }
@@ -144,6 +146,17 @@ declare global {
       .spacer {
         height: 0.5em;
       }
+      div.new-marker {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+        border-radius: 0 2px 8px;
+        padding-inline: 0.75rem 1rem;
+        padding-block: 0.25rem .4rem;
+        background: linear-gradient(35deg, #7B3300, #920 15%, #C00 75%, #F00 100%);
+        color: var(--base-text-color);
+      }
     </style>
   </head>
   <body>
@@ -166,6 +179,9 @@ declare global {
           posts.map((post) => (
             <article id={`fig-${post.id}`}>
               <a href={`/figures/${post.id}/`}>
+                {figDate(post) === newestBatch && 
+                  <div class="new-marker">Recently Added</div>
+                }
                 {post.data.figureImage && (
                   <Image
                     width={imagePx.width}
