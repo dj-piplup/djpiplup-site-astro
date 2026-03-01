@@ -11,5 +11,9 @@ boxImages:
     https://s3.djpiplup.dev/figure-boxes/16th-school-miku-4.webp,
     https://s3.djpiplup.dev/figure-boxes/16th-school-miku-5.webp,
   ]
+mfcLink: 'https://myfigurecollection.net/item/1799198'
+series: 'Vocaloid'
+character: 'Hatsune Miku'
+figureLine: 'Luminasta'
 ---
-Cute and simple outfit for miku. I forget where I got this one, so I assume Round1. Pairs with the [glasses version](./16th-glasses-miku.md) from the same anniversary celebration
+Cute and simple outfit for Miku. I forget where I got this one, so I assume Round1. Pairs with the [glasses version](./16th-glasses-miku.md) from the same anniversary celebration

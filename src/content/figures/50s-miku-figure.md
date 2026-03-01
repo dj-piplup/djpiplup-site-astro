@@ -11,5 +11,9 @@ boxImages:
     https://s3.djpiplup.dev/figure-boxes/50s-miku-4.webp,
     https://s3.djpiplup.dev/figure-boxes/50s-miku-5.webp,
   ]
+mfcLink: 'https://myfigurecollection.net/item/1874408'
+series: 'Vocaloid'
+character: 'Hatsune Miku'
+figureLine: 'Bandai Spirits'
 ---
 Kinda has mid-20th century vibes. Pretty sure I picked this up from a GameStop just because it was Miku

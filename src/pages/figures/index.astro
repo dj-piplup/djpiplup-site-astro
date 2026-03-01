@@ -1,94 +1,215 @@
 ---
-import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
-import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
-import Header from '../../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import BaseHead from "../../components/BaseHead.astro";
+import Footer from "../../components/Footer.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
+import Header from "../../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+import type { CollectionEntry } from "astro:content";
+import { writeStyles } from "../../utils/style-strings";
+import { remap } from "../../utils/remap";
+import { pick } from "../../utils/pick";
 
-const posts = (await getCollection('figures')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const figDate = (p: CollectionEntry<"figures">) => p.data.pubDate.valueOf();
+
+const allPosts = await getCollection("figures");
+const newestBatch = Math.max(...allPosts.map(figDate));
+const posts = allPosts.sort((a, b) => {
+  // If one figure is in the newest batch and the other isn't, order by newest first
+  if ((figDate(a) === newestBatch) !== (figDate(b) === newestBatch)) {
+    return figDate(b) - figDate(a);
+  }
+  // If they are both in the newest batch or not, then compare by title
+  return a.data.title.localeCompare(b.data.title);
+});
+
+const imagePx = {
+  width: 360,
+  height: 480,
+  gap: 32,
+};
+
+// These will be added via Fragments
+const cssVarsStyleTag = writeStyles({
+  main: remap(imagePx, {
+    key: (k) => `--gallery-${k}`,
+    value: (v) => `${v}px`,
+  }),
+});
+const pageFigureDataProps = [
+  "title",
+  "description",
+  "character",
+  "series",
+  "figureLine",
+] as const;
+const pageFigureData = `<script>window.figureData=${JSON.stringify(
+  allPosts.map((p) => {
+    const { id, data } = p;
+    return {
+      id,
+      fulltext: Object.values(pick(data, pageFigureDataProps)).join(";;;"),
+    };
+  }),
+)}</script>`;
+declare global {
+  interface Window {
+    figureData: {
+      id: string;
+      fulltext: string;
+    }[];
+  }
+}
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				max-width: 1650px;
-				--text-margin: 4px;
-			}
-			section {
-				display: flex;
-				width: 100%;
-				flex-wrap: wrap;
-				justify-content: center;
-				gap: 2rem;
-			}
-			article a {
-				color: var(--base-text-color);
-				&:hover {
-					color: color-mix(in srgb, var(--base-text-color) 60%, var(--link-hover) 40%)
-				}
-			}
-			article img {
-				width: 100%;
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			.title {
-				margin: 0;
-				margin-inline: var(--text-margin);
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				margin-inline: var(--text-margin);
-			}
-			h2 {
-				font-size: 2rem;
-				margin-bottom: 0.5rem;
-			}
-			p {
-				width: fit-content;
-				max-width: 1100px;
-				margin-bottom: 1rem;
-			}
-			hr {
-				color: currentColor;
-				width: 100%;
-				margin-block: 1rem 2rem;
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h2>My Figures</h2>
-			<p>This is a gallery of the figures I own. Mostly, I wanted a place to put images of the boxes because I would probably hoard them otherwise. At the moment, this is still a work in progress, but the remaining work is mostly data entry</p>
-			<p>I tried to keep the images of the figures relatively to scale with each other, but of course there is still plenty of variation with exactly how far from the camera the figure is</p>
-			<hr />
-			<section>
-					{
-						posts.map((post) => (
-							<article>
-								<a href={`/figures/${post.id}/`}>
-									{post.data.figureImage && (
-										<Image width={360} height={480} src={post.data.figureImage} alt="" />
-									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</article>
-						))
-					}
-			</section>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <Fragment set:html={cssVarsStyleTag} />
+    <style>
+      main {
+        --text-margin: 4px;
+        --dim-text: color-mix(in srgb, var(--base-text-color) 75%, black 25%);
+        max-width: calc(4 * (var(--gallery-width) + var(--gallery-gap)));
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      input {
+        width: 600px;
+        max-width: 100%;
+        font-size: 1.3rem;
+        border-radius: 2px;
+        border: none;
+        padding: 0.25rem 0.5rem;
+      }
+      section {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--gallery-gap);
+      }
+      article a {
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+        justify-content: stretch;
+        gap: 0.5rem;
+        color: var(--base-text-color);
+        width: calc(var(--gallery-width));
+        &:hover {
+          color: color-mix(
+            in srgb,
+            var(--base-text-color) 60%,
+            var(--link-hover) 40%
+          );
+          .time {
+            color: inherit !important;
+          }
+        }
+        > :not(img) {
+          line-height: 1.35rem;
+          margin-inline-start: var(--text-margin);
+        }
+      }
+      img {
+        width: var(--gallery-width);
+        height: var(--gallery-height);
+        margin-bottom: 0.25rem;
+        border-radius: 8px;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      .time {
+        font-size: 0.9rem;
+        margin: 0;
+        color: var(--dim-text);
+      }
+      h3 {
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.05rem;
+        width: fit-content;
+        max-width: 1080px;
+        margin: 0;
+      }
+      .spacer {
+        height: 0.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h2>My Figures</h2>
+      <h3>
+        This is a gallery of the figures I own. Mostly, I wanted a place to put
+        images of the boxes because I would probably hoard them otherwise. At
+        the moment, this is still a work in progress, but the remaining work is
+        mostly data entry<div class="spacer"></div>
+        I tried to keep the images of the figures relatively to scale with each other,
+        but of course there is still plenty of variation with exactly how far from
+        the camera the figure is
+      </h3>
+      <hr />
+      <input type="text" id="figure-filter" placeholder="Filter" />
+      <section>
+        {
+          posts.map((post) => (
+            <article id={`fig-${post.id}`}>
+              <a href={`/figures/${post.id}/`}>
+                {post.data.figureImage && (
+                  <Image
+                    width={imagePx.width}
+                    height={imagePx.height}
+                    src={post.data.figureImage}
+                    alt={`Image of figure ${post.data.title}`}
+                  />
+                )}
+                <h4 class="title">{post.data.title}</h4>
+                <p set:html={post.data.description} />
+                <p class="time">
+                  Added <FormattedDate date={post.data.pubDate} />
+                </p>
+              </a>
+            </article>
+          ))
+        }
+      </section>
+    </main>
+    <Footer />
+    <Fragment set:html={pageFigureData} />
+    <script>
+      const input = document.getElementById(
+        "figure-filter",
+      ) as HTMLInputElement;
+      const filterSheet = new CSSStyleSheet();
+      document.adoptedStyleSheets.push(filterSheet);
+      input.addEventListener("input", () => {
+        if (!input.value) {
+          filterSheet.replaceSync("");
+          return;
+        }
+		const s = performance.now();
+        const hideIds = window.figureData
+          .filter(
+            (fig) =>
+              !fig.fulltext.toLowerCase().includes(input.value.toLowerCase()),
+          )
+          .map((f) => `#fig-${f.id}`);
+        const sheetContent =
+          hideIds.length === 0 ? "" : `${hideIds.join(",")}{display:none;}`;
+		console.log(`Search took %oms`, performance.now() - s);
+        filterSheet.replaceSync(sheetContent);
+      });
+    </script>
+  </body>
 </html>

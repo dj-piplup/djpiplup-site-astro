@@ -3,4 +3,3 @@
 
 export const SITE_TITLE = 'DJPiplup';
 export const SITE_DESCRIPTION = 'Welcome to my website!';
-export const HIDE_LOGO = true;
