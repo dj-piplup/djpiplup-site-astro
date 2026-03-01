@@ -1,10 +1,10 @@
 ---
 import IconLink from "./IconLink.astro";
 
-const {hide} = Astro.props;
+const {hide, alignEnd} = Astro.props;
 ---
 
-<div class="social-links">
+<div class=`social-links${alignEnd ? ' align-end' : ''}`>
   <IconLink href="https://bsky.djpiplup.dev" icon="bluesky" hide={hide} screenReader="Visit DJPiplup on Bluesky"/>
   <IconLink href="https://github.com/dj-piplup" icon="github" hide={hide} screenReader="Visit DJPiplup on GitHub"/>
 </div>
@@ -14,5 +14,8 @@ const {hide} = Astro.props;
 		justify-content: center;
 		gap: 1em;
 		margin-top: 1em;
+		&.align-end {
+			justify-content: flex-end;
+		}
 	}
 </style>

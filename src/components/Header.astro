@@ -8,13 +8,13 @@ const { hideLogo, hideLinks } = Astro.props;
 
 <header>
   <nav>
-    <h2><a href="/" class={hideLogo ? 'hide-content' : ''} inert={hideLogo || null}><img class='header-pfp' src='/favicon.png'/>&nbsp;{SITE_TITLE}</a></h2>
+    <h1 class="header-title"><a href="/" class={hideLogo ? 'hide-content' : ''} inert={hideLogo || null}><img class='header-pfp' src='/favicon.png' alt="DJPiplup's Profile Picture, a painted round yellow bird holding a knife" />&nbsp;{SITE_TITLE}</a></h1>
     <div class="internal-links">
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/projects">Projects</HeaderLink>
       <HeaderLink href="/figures">Figures</HeaderLink>
     </div>
-    <SocialLinks hide={hideLinks}/>
+    <SocialLinks hide={hideLinks} alignEnd/>
   </nav>
 </header>
 <style>
@@ -32,13 +32,22 @@ const { hideLogo, hideLinks } = Astro.props;
     padding-top: 2px;
     aspect-ratio: 1/1;
   }
-  h2 {
+  .header-title {
     margin: 0;
     font-size: 1em;
+    text-align: start;
   }
 
-  h2 > a,
-  h2 > a.active {
+  .internal-links {
+    text-align: center;
+  }
+
+  .social-links {
+    text-align: end;
+  }
+
+  .header-title > a,
+  .header-title > a.active {
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -52,6 +61,9 @@ const { hideLogo, hideLinks } = Astro.props;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    > div, h1 {
+      width: 33%;
+    }
   }
   nav a {
     padding: 1em 0.5em;
