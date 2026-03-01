@@ -9,12 +9,12 @@ import Table from '../components/Table.astro';
 
 type Props = CollectionEntry<'figures'>['data'];
 
-const { title, description, pubDate, figureImage, boxImages, character, figureLine, mfcLink, series } = Astro.props;
+const { title, pubDate, figureImage, boxImages, character, figureLine, mfcLink, series } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={title}/>
 		<style>
 			main {
 				width: calc(100% - 2em);

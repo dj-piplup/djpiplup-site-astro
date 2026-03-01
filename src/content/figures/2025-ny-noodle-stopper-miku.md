@@ -1,6 +1,6 @@
 ---
 title: 2025 New Years Miku
-pubDate: 2026-02-28T18:00:00-08:00
+pubDate: 2026-02-28T18:00:00Z
 figureImage: https://s3.djpiplup.dev/figures/2025-ny-noodle-stopper-miku-figure.webp
 boxImages:
   [

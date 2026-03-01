@@ -1,5 +1,6 @@
 ---
 import type { JSX } from 'astro/jsx-runtime';
+import { shortenLink } from '../utils/shorten-link';
 
 type Props = {
   data:
@@ -81,6 +82,17 @@ if (Array.isArray(data)) {
             background-color: #FFF2;
         }
     }
+    a.table-link-short {
+      display: none;
+    }
+    @media screen and (width <= 550px) {
+      a.table-link-full {
+        display: none;
+      }
+      a.table-link-short {
+        display: inline;
+      }
+    }
 </style>
 <table class="component-table">
   {
@@ -97,7 +109,7 @@ if (Array.isArray(data)) {
     finishedData.map((row) => (
       <tr>
         {row.map((d) => (
-          <td>{d.startsWith('https://') ? <a href={d}>{d}</a> : d}</td>
+          <td>{d.startsWith('https://') ? <a href={d} class='table-link-full'>{d}</a><a href={d} class='table-link-short'>{shortenLink(d)}</a> : d}</td>
         ))}
       </tr>
     ))

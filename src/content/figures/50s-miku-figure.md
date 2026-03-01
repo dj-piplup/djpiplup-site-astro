@@ -1,6 +1,6 @@
 ---
 title: Hatsune Miku World Journey
-pubDate: 2026-02-23T18:00:00-08:00
+pubDate: 2026-02-23T18:00:00Z
 figureImage: https://s3.djpiplup.dev/figures/50s-miku-figure.webp
 boxImages:
   [
@@ -13,6 +13,6 @@ boxImages:
 mfcLink: 'https://myfigurecollection.net/item/1874408'
 series: 'Vocaloid'
 character: 'Hatsune Miku'
-figureLine: 'Bandai Spirits'
+figureLine: 'Banpresto'
 ---
 Kinda has mid-20th century vibes. Pretty sure I picked this up from a GameStop just because it was Miku

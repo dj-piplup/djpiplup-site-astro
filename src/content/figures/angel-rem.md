@@ -1,6 +1,6 @@
 ---
 title: Rem Oni Tenshi
-pubDate: 2026-02-28T18:00:00-08:00
+pubDate: 2026-02-28T18:00:00Z
 figureImage: https://s3.djpiplup.dev/figures/angel-rem-figure.webp
 boxImages:
   [

@@ -78,6 +78,9 @@ const { hideLogo, hideLinks } = Astro.props;
   }
 
   @media screen and (width <= 550px) {
+    header {
+      width: 100%;
+    }
     nav {
       grid-template-columns: 1em 1fr 1em;
     }
