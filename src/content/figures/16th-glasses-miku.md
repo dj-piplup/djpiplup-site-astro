@@ -1,6 +1,5 @@
 ---
 title: 16th Anniversary Miku - Glasses
-description: A nerdy miku wearing glasses and holding papers
 pubDate: 2026-02-23T18:00:00-08:00
 figureImage: https://s3.djpiplup.dev/figures/16th-glasses-miku-figure.webp
 boxImages:

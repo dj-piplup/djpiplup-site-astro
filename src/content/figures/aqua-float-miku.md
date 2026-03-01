@@ -1,6 +1,5 @@
 ---
 title: Aqua Float Miku
-description: Miku splashing around in a pool floatie
 pubDate: 2026-02-28T18:00:00-08:00
 figureImage: https://s3.djpiplup.dev/figures/aqua-float-miku-figure.webp
 boxImages:

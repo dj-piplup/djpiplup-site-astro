@@ -1,6 +1,5 @@
 ---
 title: 16th Anniversary Miku - School Girl
-description: A classic schoolgirl outfit for miku
 pubDate: 2026-02-23T18:00:00-08:00
 figureImage: https://s3.djpiplup.dev/figures/16th-school-miku-figure.webp
 boxImages:

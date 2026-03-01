@@ -1,6 +1,5 @@
 ---
 title: Ryza 3 Reisalin Stout
-description: My first scale figure, Ryza's outfit from Ryza&nbsp;3
 pubDate: 2026-02-23T18:00:00-08:00
 figureImage: https://s3.djpiplup.dev/figures/scale-ryza-3-figure.webp
 boxImages:

@@ -1,6 +1,5 @@
 ---
 title: Hatsune Miku World Journey
-description: A 20th century outfit for miku
 pubDate: 2026-02-23T18:00:00-08:00
 figureImage: https://s3.djpiplup.dev/figures/50s-miku-figure.webp
 boxImages:

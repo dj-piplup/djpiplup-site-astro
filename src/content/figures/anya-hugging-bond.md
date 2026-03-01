@@ -1,6 +1,5 @@
 ---
 title: Break Time Anya and Bond
-description: Anya having a cuddle with Bond
 pubDate: 2026-02-28T18:00:00-08:00
 figureImage: https://s3.djpiplup.dev/figures/anya-hugging-bond-figure.webp
 boxImages:

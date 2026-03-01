@@ -1,6 +1,5 @@
 ---
 title: Combat Himiko Toga
-description: MHA's Toga in an active pose
 pubDate: 2026-02-28T18:00:00-08:00
 figureImage: https://s3.djpiplup.dev/figures/action-toga-figure.webp
 boxImages:

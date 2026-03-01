@@ -1,6 +1,5 @@
 ---
 title: Rem Oni Tenshi
-description: Rem from Re:Zero in an angelic outfit
 pubDate: 2026-02-28T18:00:00-08:00
 figureImage: https://s3.djpiplup.dev/figures/angel-rem-figure.webp
 boxImages:
