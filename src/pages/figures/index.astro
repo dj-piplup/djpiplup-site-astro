@@ -157,6 +157,10 @@ declare global {
         background: linear-gradient(35deg, #7B3300, #920 15%, #C00 75%, #F00 100%);
         color: var(--base-text-color);
       }
+      #figure-count {
+        font-size: 0.9em;
+        color: color-mix(in srgb, var(--base-text-color) 75%, black 25%);
+      }
     </style>
   </head>
   <body>
@@ -174,6 +178,7 @@ declare global {
       </h3>
       <hr />
       <input type="text" id="figure-filter" placeholder="Filter" />
+      <p id="figure-count">Showing {allPosts.length} figures</p>
       <section>
         {
           posts.map((post) => (
@@ -203,6 +208,9 @@ declare global {
     <Footer />
     <Fragment set:html={pageFigureData} />
     <script>
+      const setCount = (shownIdCount: number) => {
+        document.getElementById('figure-count')!.innerText = `Showing ${shownIdCount} figure${shownIdCount === 1 ? '' : 's'}`;
+      }
       const input = document.getElementById(
         "figure-filter",
       ) as HTMLInputElement;
@@ -211,6 +219,7 @@ declare global {
       input.addEventListener("input", () => {
         if (!input.value) {
           filterSheet.replaceSync("");
+          setCount(window.figureData.length);
           return;
         }
 		const s = performance.now();
@@ -224,6 +233,8 @@ declare global {
           hideIds.length === 0 ? "" : `${hideIds.join(",")}{display:none;}`;
 		console.log(`Search took %oms`, performance.now() - s);
         filterSheet.replaceSync(sheetContent);
+        setCount(window.figureData.length - hideIds.length);
+        
       });
     </script>
   </body>
