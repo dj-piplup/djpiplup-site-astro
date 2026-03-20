@@ -11,6 +11,7 @@
   color-scheme: light dark;
   color: var(--base-text-color);
   background: linear-gradient(#1d013b, #17002B 50vh, #060018 100vh) #0a0028;
+  --foreground-gradient: linear-gradient(10deg, #7a3caa66, #b092e166);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -83,10 +84,6 @@ ul {
   font-size: 1.35rem;
   text-align: center;
   margin-block: 1rem;
-}
-
-#main-page-pfp {
-  border-radius: 50%;
 }
 
 @media (prefers-color-scheme: light) {

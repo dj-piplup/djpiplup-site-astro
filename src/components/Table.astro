@@ -1,5 +1,4 @@
 ---
-import type { JSX } from 'astro/jsx-runtime';
 import { shortenLink } from '../utils/shorten-link';
 
 type Props = {
@@ -60,7 +59,7 @@ if (Array.isArray(data)) {
 }
 ---
 <style>
-    .component-table {
+    table {
         background-color: #FFF2;
         margin: 0.5rem;
         padding: 0;
@@ -94,7 +93,7 @@ if (Array.isArray(data)) {
       }
     }
 </style>
-<table class="component-table">
+<table>
   {
     headers.size === 0 ? null : (
       <thead>

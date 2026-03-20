@@ -1,0 +1,103 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import QnA from "../components/QnA.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+      <Header/>
+    <main>
+      <h2>"F"AQ</h2>
+      <QnA question="Do I know you from [some other platform]?">
+        Maybe, probably, but possibly not. I've had DJPiplup solely for a long
+        time, but it originally came from accounts that my brother and I shared.
+        If you knew 'DJPiplup' before like, 2012, there's a good chance it was
+        him and not me. Otherwise: hello again :)
+      </QnA>
+      <QnA question="What's that bird PFP?">
+        That is a little bird sitting on the shoulder of Marianne from Fire Emblem 3 Houses in one of my favorite fanarts ever.
+        Art is by KKonisa, who seems to have disappeared from the internet, unfortunately
+      </QnA>
+      <QnA question="Fan of things video game/anime? Like what?">
+        There is a lot of stuff that I'm at least aware of and enjoy
+        tangentially, but the list of things I've actually watched/played and
+        liked and can think of off the top of my head includes (but is not
+        limited to):
+        <ul>
+          <li>FFXIV</li>
+          <li>Persona 3-5</li>
+          <li>Xenoblade Chronicles series</li>
+          <li>Fire Emblem series</li>
+          <li>Honkai: Star Rail</li>
+          <li>Zenless Zone Zero</li>
+          <li>Atelier (Ryza only so far)</li>
+          <li>Project Diva Mega Mix</li>
+          <li>Holocure</li>
+          <li>Fighting Games (amateur):
+            <ul>
+              <li>Idol Showdown</li>
+              <li>Blazblue</li>
+              <li>Under Night</li>
+              <li>Guilty Gear</li>
+              <li>a little bit of others</li>
+            </ul>
+          </li>
+          <li>Dungeon Meshi (anime)</li>
+          <li>Bocchi: The Rock</li>
+          <li>Frieren</li>
+        </ul>
+      </QnA>
+      <QnA question="Are you open to chat?">
+        Sure, I'd love a friendly chat about mutual interests! Just don't
+        advertise in DMs and we're good.<br />
+        Quick note: please try to bring up said interests right away, I get a little
+        iffy on whether a simple 'Hi how are you' and the like is a real person and
+        may not respond
+      </QnA>
+      <QnA question="FFXIV??? Who, where, what">
+        I'm Dagr Jotunskati on Jenova (Aether). Feel free to go look at my house
+        at Jenova Empyrium Ward 17 Plot 11
+      </QnA>
+      <QnA question="Holocure and Idol showdown? Do you like Hololive?">
+        Kinda, yeah. I don't sit down and watch things much, but I do enjoy the
+        Hololive content I come across. If I had to pick a few: Fauna, Mumei,
+        Raora, Nerissa.
+        <br /><br />
+        Separate from hololive, I also watch and enjoy <a
+          href="https://www.youtube.com/@niminightmare">Nimi Nightmare</a
+        >, she's fun
+      </QnA>
+      <QnA question="You do web dev? Which frameworks/tools?">
+        I'll pick up whatever, but I've gotten into:
+        <ul>
+          <li>Vue</li>
+					<li>Svelte</li>
+					<li>Solid</li>
+					<li>Vanilla</li>
+					<li>Lit</li>
+					<li>Stencil</li>
+					<li>Astro</li>
+        </ul>
+        using
+        <ul>
+          <li>Typescript</li>
+					<li>Vite</li>
+					<li>Firebase</li>
+					<li>Cloudflare Workers</li>
+        </ul>
+        About half of these I've used once or twice, but the ones I think I'd pick for a new project are:<br/>
+        Astro for content, Vanilla for simple webapps, Lit for more complex. Vite and Typescript no matter what, hosted on Cloudflare.
+        <br/><br/>
+        This site was made with Astro so I can look into how to use it, seems to have gone well.
+      </QnA>
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,490 @@
+{
+  "classes": [
+    {
+      "name": "Machinist",
+      "glamourSet": "machinist",
+      "playStatus": "main",
+      "category": "DPS",
+      "portrait": "MCH.webp"
+    },
+    {
+      "name": "Dancer",
+      "glamourSet": "dancer",
+      "playStatus": "second",
+      "category": "DPS",
+      "portrait": "DNC.webp"
+    },
+    {
+      "name": "Warrior",
+      "glamourSet": "warrior",
+      "playStatus": "off",
+      "category": "Tank",
+      "portrait": "WAR.webp"
+    },
+    {
+      "name": "White Mage",
+      "glamourSet": "sorceress",
+      "playStatus": "off",
+      "category": "Healer",
+      "portrait": "WHM.webp"
+    },
+    {
+      "name": "Viper",
+      "glamourSet": "rogue",
+      "playStatus": "off",
+      "category": "DPS",
+      "portrait": "VPR.webp"
+    },
+    {
+      "name": "Black Mage",
+      "glamourSet": "sorceress",
+      "playStatus": "off",
+      "category": "DPS",
+      "portrait": "BLM.webp"
+    },
+    {
+      "name": "Paladin",
+      "glamourSet": "rogue",
+      "category": "Tank",
+      "portrait": "PLD.webp"
+    },
+    {
+      "name": "Dark Knight",
+      "glamourSet": "cloud",
+      "category": "Tank",
+      "portrait": "DRK.webp"
+    },
+    {
+      "name": "Gunbreaker",
+      "glamourSet": "rogue",
+      "category": "Tank",
+      "portrait": "GNB.webp"
+    },
+    {
+      "name": "Scholar",
+      "glamourSet": "sweater",
+      "category": "Healer",
+      "portrait": "SCH.webp"
+    },
+    {
+      "name": "Astrologian",
+      "glamourSet": "sorceress",
+      "category": "Healer",
+      "portrait": "AST.webp"
+    },
+    {
+      "name": "Sage",
+      "glamourSet": "mechanic",
+      "category": "Healer",
+      "portrait": "SGE.webp"
+    },
+    {
+      "name": "Monk",
+      "glamourSet": "tropical",
+      "category": "DPS",
+      "portrait": "MNK.webp"
+    },
+    {
+      "name": "Dragoon",
+      "glamourSet": "scalemail",
+      "category": "DPS",
+      "portrait": "DRG.webp"
+    },
+    {
+      "name": "Ninja",
+      "glamourSet": "rogue",
+      "category": "DPS",
+      "portrait": "NIN.webp"
+    },
+    {
+      "name": "Samurai",
+      "glamourSet": "rogue",
+      "category": "DPS",
+      "portrait": "SAM.webp"
+    },
+    {
+      "name": "Reaper",
+      "glamourSet": "gatherer",
+      "category": "DPS",
+      "portrait": "RPR.webp"
+    },
+    {
+      "name": "Summoner",
+      "glamourSet": "sorceress",
+      "category": "DPS",
+      "portrait": "SMN.webp"
+    },
+    {
+      "name": "Red Mage",
+      "glamourSet": "redbiker",
+      "category": "DPS",
+      "portrait": "RDM.webp"
+    },
+    {
+      "name": "Pictomancer",
+      "glamourSet": "sweater",
+      "category": "DPS",
+      "portrait": "PCT.webp"
+    },
+    {
+      "name": "Bard",
+      "glamourSet": "forest",
+      "category": "DPS",
+      "portrait": "BRD.webp"
+    }
+  ],
+  "glamours": {
+    "machinist": {
+      "displayName": "Machinist",
+      "imgKey": "MCH",
+      "pieces": {
+        "head": {
+          "name": "Anemos Hat",
+          "dye": "Loam Brown",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Anemos_Hat"
+        },
+        "body": {
+          "name": "Craftsman's Coverall Top",
+          "dye": "Wine Red",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Craftsman's_Coverall_Top"
+        },
+        "hands": {
+          "name": "The Emperor's New Gloves",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/The_Emperor's_New_Gloves"
+        },
+        "legs": {
+          "name": "Isle Farmhand's Cutoffs",
+          "dye": "General Purpose Dark Blue",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Isle_Farmhand's_Cutoffs"
+        },
+        "feet": {
+          "name": "Replica Sky Pirate's Boots of Scouting",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Replica_Sky_Pirate's_Boots_of_Scouting"
+        }
+      }
+    },
+    "dancer": {
+      "displayName": "Dancer",
+      "imgKey": "DNC",
+      "pieces": {
+        "head": {
+          "name": "Friendship Circlet",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Friendship_Circlet"
+        },
+        "body": {
+          "name": "Weathered Dancer's Casaque",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Weathered_Dancer's_Casaque"
+        },
+        "hands": {
+          "name": "Ravel Keeper's Armlets of Aiming",
+          "dye": "Blood Red",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Ravel_Keeper's_Armlets_of_Aiming"
+        },
+        "legs": {
+          "name": "No.2 Type B Leggings",
+          "dye": "Ruby Red",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/No.2_Type_B_Leggings"
+        },
+        "feet": {
+          "name": "Moonfire Sandals",
+          "dye": "Blood Red",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Moonfire_Sandals"
+        }
+      }
+    },
+    "warrior": {
+      "displayName": "Warrior",
+      "imgKey": "WAR",
+      "pieces": {
+        "head": {
+          "name": "Skull Eyepatch",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Skull_Eyepatch"
+        },
+        "body": {
+          "name": "Classical Hoplomachus's Lorica",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Classical_Hoplomachus's_Lorica"
+        },
+        "hands": {
+          "name": "Classical Hoplomachus's Manicae",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Classical_Hoplomachus's_Manicae"
+        },
+        "legs": {
+          "name": "Thavnairian Tights",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Thavnairian_Tights"
+        },
+        "feet": {
+          "name": "Classical Hoplomachus's Greaves",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Classical_Hoplomachus's_Greaves"
+        }}
+    },
+    "sorceress": {
+      "displayName": "Panthean Sorceress",
+      "imgKey": "Panthean",
+      "pieces": {
+        "head": {
+          "name": "Red Viola Corsage",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Red_Viola_Corsage"
+        },
+        "body": {
+          "name": "Panthean Robe of Healing",
+          "dye": "General Purpose Dark Blue",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Panthean_Robe_of_Healing"
+        },
+        "hands": {
+          "name": "Summer Sunset Wrist Torques",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Summer_Sunset_Wrist_Torques"
+        },
+        "legs": {
+          "name": "Thavnairian Tights",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Thavnairian_Tights"
+        },
+        "feet": {
+          "name": "Moonfire Sandals",
+          "dye": "Soot Black",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Moonfire_Sandals"
+        }
+      }
+    },
+    "rogue": {
+      "displayName": "Rogue",
+      "imgKey": "Rogue",
+      "pieces": {
+        "head": {
+          "name": "Skull Eyepatch",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Skull_Eyepatch"
+        },
+        "body": {
+          "name": "Neo-Ishgardian Top of Fending",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Neo-Ishgardian_Top_of_Fending"
+        },
+        "hands": {
+          "name": "Replica Sky Pirate's Gloves of Scouting",
+          "dye": "General Purpose Dark Brown",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Replica_Sky_Pirate's_Gloves_of_Scouting"
+        },
+        "legs": {
+          "name": "Aoidos' Tights",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Aoidos'_Tights"
+        },
+        "feet": {
+          "name": "Replica Sky Pirate's Boots of Scouting",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Replica_Sky_Pirate's_Boots_of_Scouting"
+        }}
+    },
+    "cloud": {
+      "displayName": "Dark Knight",
+      "imgKey": "DRK",
+      "pieces": {
+        "head": {
+          "name": "Endless Summer Glasses",
+          "dye": "Soot Black",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Endless_Summer_Glasses"
+        },
+        "body": {
+          "name": "Strife Vest",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Strife_Vest"
+        },
+        "hands": {
+          "name": "Strife Gloves",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Strife_Gloves"
+        },
+        "legs": {
+          "name": "No.2 Type B Leggings",
+          "dye": "Soot Black",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/No.2_Type_B_Leggings"
+        },
+        "feet": {
+          "name": "Hyuran Longboots",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Hyuran_Longboots"
+        }}
+    },
+    "sweater": {
+      "displayName": "Scholarly Sweater",
+      "imgKey": "Sweater",
+      "pieces": {
+        "head": {
+          "name": "Elegant Rimless Glasses",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Elegant_Rimless_Glasses"
+        },
+        "body": {
+          "name": "Adventuring Sweater",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Adventuring_Sweater"
+        },
+        "hands": {
+          "name": "The Emperor's New Gloves",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/The_Emperor's_New_Gloves"
+        },
+        "legs": {
+          "name": "Peacelover's Pantaloons",
+          "dye": "Ink Blue",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Peacelover's_Pantaloons"
+        },
+        "feet": {
+          "name": "Calfskin Rider's Shoes",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Calfskin_Rider's_Shoes"
+        }}
+    },
+    "mechanic": {
+      "displayName": "Mechanic",
+      "imgKey":"SGE",
+      "pieces": {
+        "head": {
+          "name": "Endless Summer Glasses",
+          "dye": "Wine Red",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Endless_Summer_Glasses"
+        },
+        "body": {
+          "name": "Craftsman's Singlet",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Craftsman's_Singlet"
+        },
+        "hands": {
+          "name": "Strife Gloves",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Strife_Gloves"
+        },
+        "legs": {
+          "name": "Peacelover's Pantaloons",
+          "dye": "Ink Blue",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Peacelover's_Pantaloons"
+        },
+        "feet": {
+          "name": "Calfskin Rider's Shoes",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Calfskin_Rider's_Shoes"
+        }}
+    },
+    "tropical": {
+      "displayName": "Street Fighter",
+      "imgKey": "MNK",
+      "pieces": {
+        "head": {
+          "name": "Endless Summer Glasses",
+          "dye": "Kobold Brown",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Endless_Summer_Glasses"
+        },
+        "body": {
+          "name": "Summer Indigo Shirt",
+          "dye": "Dalamud Red",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Summer_Indigo_Shirt"
+        },
+        "hands": {
+          "name": "The Emperor's New Gloves",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/The_Emperor's_New_Gloves"
+        },
+        "legs": {
+          "name": "Isle Farmhand's Cutoffs",
+          "dye": "General Purpose Dark Blue",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Isle_Farmhand's_Cutoffs"
+        },
+        "feet": {
+          "name": "Calfskin Rider's Shoes",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Calfskin_Rider's_Shoes"
+        }}
+    },
+    "scalemail": {
+      "displayName": "Dragoon",
+      "imgKey": "DRG",
+      "pieces": {
+        "head": {
+          "name": "Classical Eques's Headgear",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Classical_Eques's_Headgear"
+        },
+        "body": {
+          "name": "High Steel Scale Mail of Maiming",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/High_Steel_Scale_Mail_of_Maiming"
+        },
+        "hands": {
+          "name": "High Steel Armguards of Maiming",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/High_Steel_Armguards_of_Maiming"
+        },
+        "legs": {
+          "name": "Hakama #55",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Hakama_55"
+        },
+        "feet": {
+          "name": "Gaganaskin Leg Guards of Maiming",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Gaganaskin_Leg_Guards_of_Maiming"
+        }}
+    },
+    "gatherer": {
+      "displayName": "Gatherer",
+      "imgKey": "RPR",
+      "pieces": {
+        "head": {
+          "name": "Straw Capeline",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Straw_Capeline"
+        },
+        "body": {
+          "name": "Isle Explorer's Shirt",
+          "dye": "Hunter Green",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Isle_Explorer's_Shirt"
+        },
+        "hands": {
+          "name": "Isle Explorer's Leather Halfgloves",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Isle_Explorer's_Leather_Halfgloves"
+        },
+        "legs": {
+          "name": "Isle Farmhand's Cutoffs",
+          "dye": "General Purpose Dark Blue",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Isle_Farmhand's_Cutoffs"
+        },
+        "feet": {
+          "name": "Wayfarer's Boots",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Wayfarer's_Boots"
+        }}
+    },
+    "redbiker": {
+      "displayName": "Red Biker",
+      "imgKey": "RDM",
+      "pieces": {
+        "head": {
+          "name": "Endless Summer Glasses",
+          "dye": "Soot Black",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Endless_Summer_Glasses"
+        },
+        "body": {
+          "name": "Calfskin Rider's Jacket",
+          "dye":"Wine Red",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Calfskin_Rider's_Jacket"
+        },
+        "hands": {
+          "name": "The Emperor's New Gloves",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/The_Emperor's_New_Gloves"
+        },
+        "legs": {
+          "name": "Night of Devilry Trousers",
+          "dye": "Ink Blue",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Night_of_Devilry_Trousers"
+        },
+        "feet": {
+          "name": "Calfskin Rider's Shoes",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Calfskin_Rider's_Shoes"
+        }}
+    },
+    "forest": {
+      "displayName": "Forest Wanderer",
+      "imgKey": "BRD",
+      "pieces": {
+        "head": {
+          "name": "Friendship Circlet",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Friendship_Circlet#tabber-Female"
+        },
+        "body": {
+          "name": "Cape of Happiness",
+          "dye":"Turquoise Green",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Cape_of_Happiness"
+        },
+        "hands": {
+          "name": "Summer Sunset Wrist Torques",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Summer_Sunset_Wrist_Torques"
+        },
+        "legs": {
+          "name": "Spring Bottoms",
+          "dye": "Ink Blue",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Spring_Bottoms"
+        },
+        "feet": {
+          "name": "Wayfarer's Boots",
+          "link": "https://ffxiv.consolegameswiki.com/wiki/Wayfarer's_Boots"
+        }}
+    }
+  }
+}

@@ -1,0 +1,220 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import DagrPortrait from "../components/DagrPortrait.astro";
+import Footer from "../components/Footer.astro";
+import Gallery from "../components/Gallery.astro";
+import Header from "../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import dagrData from "../data/dagr-data.json";
+
+const classes = Object.groupBy(dagrData.classes, (c) =>
+  !!c.playStatus ? (c.playStatus === "off" ? "offs" : "mains") : "others",
+);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      #pre-name-title {
+        font-size: 1.2rem;
+      }
+      #name-title {
+        margin-top: -1rem;
+        margin-bottom: 1rem;
+        font-size: 3rem;
+      }
+      h3 {
+        font-size: 1.5rem;
+      }
+      .portrait-gallery {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 0.5rem;
+      }
+      main {
+        max-width: 1470px;
+        > :not(.portrait-gallery) {
+          max-width: 1000px;
+        }
+      }
+      dialog {
+        padding: 0;
+        border: 0;
+        background-color: transparent;
+        cursor: pointer;
+        article.dialog-content {
+          cursor: default;
+          height: fit-content;
+          width: fit-content;
+          max-width: 90vw;
+          max-height: 90vh;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          padding: 1.5rem;
+          border-radius: 0.25rem;
+          background: #204 var(--foreground-gradient);
+          box-sizing: border-box;
+          overflow-y: auto;
+
+          h4 {
+            width: 100%;
+            text-align: center;
+            font-size: 1.3rem;
+          }
+          .side-by-side {
+            width: fit-content;
+            max-width: 1000px;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: flex-start;
+            djpiplup-gallery {
+              flex: 0 0 400px;
+            }
+          }
+        }
+        &::backdrop {
+          background-color: #0009;
+        }
+      }
+
+      table {
+        display: table;
+        background-color: #fff1;
+        margin: 0.5rem;
+        padding: 0;
+        border: none;
+        border-spacing: 0;
+        tbody {
+          margin: 0;
+          padding: 0;
+        }
+        td,
+        th {
+          width: 150px;
+          height: 4rem;
+          padding: 0.5rem 0.75rem;
+          border-inline-start: 1px solid
+            color-mix(in srgb, currentColor 30%, #0004 70%);
+          &:first-child {
+            border: none;
+            width: 50px;
+          }
+        }
+        th {
+          height: 1rem;
+        }
+        tbody > tr:nth-child(odd) {
+          background-color: #ffffff18;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h2 id="pre-name-title">My FFXIV Warrior of Light</h2>
+      <h2 id="name-title">Dagr Jotunskati</h2>
+      <img id="main-portrait" height="487.5" width="650" src="/dagr-portraits/dog-dagr.webp"/>
+      <p class="intro-blurb">
+        There she is, Dagr, my FFXIV character. I've been playing about 5 years now (a bit more on and off the last couple years), and mostly stick to "Normal" content. I do still commit to some bigger grinds though, like all classes max level, and as many relic weapons as I can.<br/>
+        Clicking on the portraits for my classes should bring up a popup of the glamour pieces I use.
+      </p>
+      <h3>Mains</h3>
+      <section class="portrait-gallery">
+        {classes.mains?.map((c) => <DagrPortrait classData={c} />)}
+      </section>
+      <h3>Off-Options</h3>
+      <section class="portrait-gallery">
+        {classes.offs?.map((c) => <DagrPortrait classData={c} />)}
+      </section>
+      <h3>Other</h3>
+      <section class="portrait-gallery">
+        {classes.others?.map((c) => <DagrPortrait classData={c} />)}
+      </section>
+    </main>
+    <Footer />
+    {
+      Object.entries(dagrData.glamours).map(([slug, data]) => (
+        <dialog id={slug}>
+          <article class="dialog-content">
+            <h4>{data.displayName}</h4>
+            <div class="side-by-side">
+              <Gallery
+                imgSrcs={["front", "left", "back", "right"].map(
+                  (dir) => `/dagr-references/${data.imgKey}-${dir}.webp`,
+                )}
+              />
+              <table class="modal-pieces">
+                <thead>
+                  <th />
+                  <th>Piece</th>
+                  <th>Dye</th>
+                </thead>
+                {Object.entries(data.pieces).map(([slot, piece]) => (
+                  <tr>
+                    <td>{slot.replace(/^./, (c) => c.toUpperCase())}</td>
+                    <td>
+                      <a href={piece.link}>{piece.name}</a>
+                    </td>
+                    <td>{"dye" in piece ? piece.dye : null}</td>
+                  </tr>
+                ))}
+              </table>
+            </div>
+          </article>
+        </dialog>
+      ))
+    }
+    <script>
+      function replaceHash(v: string) {
+        const plain = window.location.href.replace(/#\w+$/, "");
+        const hash = v ? `#${v}` : "";
+        window.history.replaceState({}, "", `${plain}${hash}`);
+      }
+
+      document.addEventListener("click", (e) => {
+        if (
+          e
+            .composedPath()
+            .some(
+              (t) =>
+                t instanceof HTMLElement &&
+                t.classList.contains("dialog-content"),
+            )
+        ) {
+          return;
+        }
+        replaceHash("");
+        for (const el of document.getElementsByTagName("dialog")) {
+          el.close();
+        }
+      });
+      for (const el of document.querySelectorAll<HTMLElement>(
+        "article[data-glamour]",
+      )) {
+        el.addEventListener("click", (e) => {
+          const selector = `#${el.dataset?.glamour ?? ""}`;
+          const modal = document.querySelector<HTMLDialogElement>(selector);
+          if (modal) {
+            modal.showModal();
+            replaceHash(selector.slice(1));
+          }
+          e.stopPropagation();
+        });
+      }
+      if (window.location.hash) {
+        const dialog = document.querySelector<HTMLDialogElement>(
+          `dialog${window.location.hash}`,
+        );
+        if (dialog) dialog.showModal();
+      }
+    </script>
+  </body>
+</html>

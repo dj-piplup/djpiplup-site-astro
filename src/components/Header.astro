@@ -2,6 +2,7 @@
 import { SITE_TITLE } from "../consts";
 import HeaderLink from "./HeaderLink.astro";
 import SocialLinks from "./SocialLinks.astro";
+import siteSections from "../data/site-sections.json";
 
 const { hideLogo, hideLinks } = Astro.props;
 ---
@@ -10,9 +11,7 @@ const { hideLogo, hideLinks } = Astro.props;
   <nav>
     <h1 class="header-title"><a href="/" class={hideLogo ? 'hide-content' : ''} inert={hideLogo || null} title={SITE_TITLE}><img class='header-pfp' src='/favicon.png' alt="DJPiplup's Profile Picture, a painted round yellow bird holding a knife" />&nbsp;<span id="site-title">{SITE_TITLE}</span></a></h1>
     <div class="internal-links">
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/projects">Projects</HeaderLink>
-      <HeaderLink href="/figures">Figures</HeaderLink>
+      {siteSections.map(s => <HeaderLink href={s.link}>{s.displayName}</HeaderLink>)}
     </div>
     <SocialLinks hide={hideLinks} alignEnd/>
   </nav>

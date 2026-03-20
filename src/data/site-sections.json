@@ -1,0 +1,27 @@
+[
+  {
+    "link": "/",
+    "displayName": "Home",
+    "description": null
+  },
+  {
+    "link": "/faq",
+    "displayName": "\"F\"AQ",
+    "description": "A bit more about me"
+  },
+  {
+    "link": "/projects",
+    "displayName": "Projects",
+    "description": "The things I've done as DJPiplup"
+  },
+  {
+    "link": "/figures",
+    "displayName": "Figures",
+    "description": "An archive of the figures I own (WIP)"
+  },
+  {
+    "link": "/dagr",
+    "displayName": "FFXIV",
+    "description": "All about my WoL, Dagr"
+  }
+]

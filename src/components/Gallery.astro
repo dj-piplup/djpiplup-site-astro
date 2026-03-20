@@ -1,8 +1,8 @@
 ---
-type Props = {imgSrcs: string[]}
+type Props = {imgSrcs: string[], galleryId?: string}
 const { imgSrcs } = Astro.props;
 ---
-<section id="gallery">
+<djpiplup-gallery>
   <img class="selected" src={imgSrcs[0]}/>
   <div class="image-picker">
     {
@@ -11,22 +11,32 @@ const { imgSrcs } = Astro.props;
       ))
     }
   </div>
-</section>
+</djpiplup-gallery>
 <script>
-  const mainImage = document.querySelector<HTMLImageElement>('#gallery > .selected')!;
-  const handleImageClick = (e: Event) => {
-    const srcImg = e.target as HTMLImageElement;
-    mainImage.src = srcImg.src;
-    for(const el of document.getElementsByClassName('matches-selected')) {
-      el.classList.remove('matches-selected');
+  class DJPiplupGallery extends HTMLElement {
+    connectedCallback() {
+      const mainImage = this.querySelector<HTMLImageElement>('.selected')!;
+      const handleImageClick = (e: Event) => {
+        const srcImg = e.target as HTMLImageElement;
+        mainImage.src = srcImg.src;
+        for(const el of this.getElementsByClassName('matches-selected')) {
+          el.classList.remove('matches-selected');
+        }
+        srcImg.classList.add('matches-selected');
+      }
+      this.querySelectorAll<HTMLImageElement>('.image-picker > img').forEach(img => {
+        img.addEventListener('click', handleImageClick);
+      });
     }
-    srcImg.classList.add('matches-selected');
   }
-  document.querySelectorAll<HTMLImageElement>('.image-picker > img').forEach(img => {
-    img.addEventListener('click', handleImageClick);
-  });
+  customElements.define('djpiplup-gallery', DJPiplupGallery);
 </script>
 <style>
+  djpiplup-gallery {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+  }
   img {
     aspect-ratio: 3:4;
   }
